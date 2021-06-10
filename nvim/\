@@ -1,0 +1,88 @@
+">>> badranx me >>>
+call plug#begin(stdpath('data') . '/plugged')
+	Plug 'lervag/vimtex'
+	Plug 'lifepillar/vim-mucomplete'
+call plug#end()
+"vimtex
+"let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
+"mucomplete
+set completeopt+=menuone
+  set completeopt+=noselect
+let g:mucomplete#enable_auto_at_startup = 1
+
+"<<<<<slime
+let g:slime_target = "tmux"
+"slime for ipython
+let g:slime_python_ipython = 1
+
+if !exists("g:slime_dispatch_ipython_pause")
+  let g:slime_dispatch_ipython_pause = 100
+end
+
+function! _EscapeText_python(text)
+  if exists('g:slime_python_ipython') && len(split(a:text,"\n")) > 1
+    return ["%cpaste -q\n", g:slime_dispatch_ipython_pause, a:text, "--\n"]
+  else
+    let empty_lines_pat = '\(^\|\n\)\zs\(\s*\n\+\)\+'
+    let no_empty_lines = substitute(a:text, empty_lines_pat, "", "g")
+    let dedent_pat = '\(^\|\n\)\zs'.matchstr(no_empty_lines, '^\s*')
+    let dedented_lines = substitute(no_empty_lines, dedent_pat, "", "g")
+    let except_pat = '\(elif\|else\|except\|finally\)\@!'
+    let add_eol_pat = '\n\s[^\n]\+\n\zs\ze\('.except_pat.'\S\|$\)'
+    return substitute(dedented_lines, add_eol_pat, "\n", "g")
+  end
+endfunction
+
+
+">>>>slime
+
+set number
+set relativenumber
+set path+=**
+set preserveindent
+
+"finding files while ignoring case
+set wildignorecase
+
+"NEW LINES IN NORMAL MODE
+map <Space> <Leader>
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
+
+"search indocument smartly!
+set ignorecase
+set smartcase
+
+"""let $PAGER=''
+
+"netrw settings!!
+let g:netrw_preview=1
+"let g:netrw_browse_split=4
+let g:netrw_winsize=20
+let g:netrw_banner=0
+"
+""mouse and yanking to the computer clipboard on LINUX
+"set mouse=a
+"set clipboard=unnamedplus
+
+"always show status bar
+set laststatus=2
+
+
+"cursor insert/normal
+autocmd InsertEnter,InsertLeave * set cul!
+
+"idnentation/indent
+set autoindent
+set cindent
+
+"no idea
+syntax on
+"<<<<
+
+
+map! <F7> <CR>
+nmap <F5> :w<CR>
+imap <F5> <ESC>:w<CR>
