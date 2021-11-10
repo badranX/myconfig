@@ -7,6 +7,9 @@ redshift & disown
 if [ -f ~/.fehbg ]; then
 	~/.fehbg &
 fi
+if [ -f ~/fehbg.jpg ]; then
+	feh --bg-scale ~/fehbg.jpg
+fi
 
 if [ ! -z ${DISPLAY} ]
 	while true; do
