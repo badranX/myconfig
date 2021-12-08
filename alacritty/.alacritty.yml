@@ -1,0 +1,242 @@
+font:
+  normal:
+    family: monospace
+    style: Bold 
+    
+
+  bold:
+    family: monospace
+    style: Bold
+
+  italic:
+    family: monospace
+    style: Italic
+
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+  size: 18
+
+
+# Colors (Seoul256)
+Dcolors:
+  # Default colors
+  primary:
+    background: '#3a3a3a'
+    foreground: '#d0d0d0'
+
+  # Normal colors
+  normal:
+    black:   '#4e4e4e'
+    red:     '#d68787'
+    green:   '#5f865f'
+    yellow:  '#d8af5f'
+    blue:    '#85add4'
+    magenta: '#d7afaf'
+    cyan:    '#87afaf'
+    white:   '#d0d0d0'
+
+  # Bright colors
+  bright:
+    black:   '#626262'
+    red:     '#d75f87'
+    green:   '#87af87'
+    yellow:  '#ffd787'
+    blue:    '#add4fb'
+    magenta: '#ffafaf'
+    cyan:    '#87d7d7'
+    white:   '#e4e4e4'
+
+# Colors (Seoul256-light)
+Dcolors:
+  # Default colors
+  primary:
+    background: '#dadada'
+    foreground: '#4e4e4e'
+
+  # Normal colors
+  normal:
+    black:   '#4e4e4e'
+    red:     '#af5f5f'
+    green:   '#5f885f'
+    yellow:  '#af8760'
+    blue:    '#5f87ae'
+    magenta: '#875f87'
+    cyan:    '#5f8787'
+    white:   '#e4e4e4'
+
+  # Bright colors
+  bright:
+    black:   '#3a3a3a'
+    red:     '#870100'
+    green:   '#005f00'
+    yellow:  '#d8865f'
+    blue:    '#0087af'
+    magenta: '#87025f'
+    cyan:    '#008787'
+    white:   '#eeeeee'
+
+# KDE Breeze (Ported from Konsole)
+Dcolors:
+  # Default colors
+  primary:
+    background: '#232627'
+    foreground: '#fcfcfc'
+
+    dim_foreground: '#eff0f1'
+    bright_foreground: '#ffffff'
+    dim_background: '#31363b'
+    bright_background: '#000000'
+
+  # Normal colors
+  normal:
+    black: '#232627'
+    red: '#ed1515'
+    green: '#11d116'
+    yellow: '#f67400'
+    blue: '#1d99f3'
+    magenta: '#9b59b6'
+    cyan: '#1abc9c'
+    white: '#fcfcfc'
+
+  # Bright colors
+  bright:
+    black: '#7f8c8d'
+    red: '#c0392b'
+    green: '#1cdc9a'
+    yellow: '#fdbc4b'
+    blue: '#3daee9'
+    magenta: '#8e44ad'
+    cyan: '#16a085'
+    white: '#ffffff'
+
+  # Dim colors
+  dim:
+    black: '#31363b'
+    red: '#783228'
+    green: '#17a262'
+    yellow: '#b65619'
+    blue: '#1b668f'
+    magenta: '#614a73'
+    cyan: '#186c60'
+    white: '#63686d'
+
+# Colors (Hyper)
+colors:
+  # Default colors
+  primary:
+    background: '#000000'
+    foreground: '#ffffff'
+  cursor:
+    text: '#F81CE5'
+    cursor: '#ffffff'
+
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#fe0100'
+    green:   '#33ff00'
+    yellow:  '#feff00'
+    blue:    '#0066ff'
+    magenta: '#cc00ff'
+    cyan:    '#00ffff'
+    white:   '#d0d0d0'
+
+  # Bright colors
+  bright:
+    black:   '#808080'
+    red:     '#fe0100'
+    green:   '#33ff00'
+    yellow:  '#feff00'
+    blue:    '#0066ff'
+    magenta: '#cc00ff'
+    cyan:    '#00ffff'
+    white:   '#FFFFFF'
+
+Dcolors:
+  primary:
+    foreground: '#64526F'
+    background: '#FAF7EE'
+
+  cursor:
+    cursor:     '#64526F'
+    text:       '#FAF7EE'
+  normal:
+    black:      '#FAF7EE'
+    red:        '#DF201C'
+    green:      '#29A0AD'
+    yellow:     '#DB742E'
+    blue:       '#3980C2'
+    magenta:    '#2C9473'
+    cyan:       '#6B3062'
+    white:      '#64526F'
+
+  bright:
+    black:      '#9F93A1'
+    red:        '#DF201C'
+    green:      '#29A0AD'
+    yellow:     '#DB742E'
+    blue:       '#3980C2'
+    magenta:    '#2C9473'
+    cyan:       '#6B3062'
+    white:      '#64526F'
+
+# Colors (Ayu Mirage)
+Dcolors:
+  # Default colors
+  primary:
+    background: '#202734'
+    foreground: '#CBCCC6'
+
+  # Normal colors
+  normal:
+    black: '#191E2A'
+    red: '#FF3333'
+    green: '#BAE67E'
+    yellow: '#FFA759'
+    blue: '#73D0FF'
+    magenta: '#FFD580'
+    cyan: '#95E6CB'
+    white: '#C7C7C7'
+
+  # Bright colors
+  bright:
+    black: '#686868'
+    red: '#F27983'
+    green: '#A6CC70'
+    yellow: '#FFCC66'
+    blue: '#5CCFE6'
+    magenta: '#FFEE99'
+    cyan: '#95E6CB'
+    white: '#FFFFFF'
+
+# Colors (Gruvbox light)
+Dcolors:
+  # Default colors
+  primary:
+    # hard contrast: background = '#f9f5d7'
+    background: '#fbf1c7'
+    # soft contrast: background = '#f2e5bc'
+    foreground: '#3c3836'
+
+  # Normal colors
+  normal:
+    black:   '#fbf1c7'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#7c6f64'
+
+  # Bright colors
+  bright:
+    black:   '#928374'
+    red:     '#9d0006'
+    green:   '#79740e'
+    yellow:  '#b57614'
+    blue:    '#076678'
+    magenta: '#8f3f71'
+    cyan:    '#427b58'
+    white:   '#3c3836'
