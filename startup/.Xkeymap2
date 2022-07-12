@@ -1,3 +1,4 @@
+#133 is Shift and 50 is super
 xkb_keymap {
 xkb_keycodes "evdev+aliases(qwerty)" {
     minimum = 8;
@@ -42,7 +43,7 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <AC09> = 46;
     <AC10> = 47;
     <AC11> = 48;
-    <TLDE> = 133;
+    <TLDE> = 50;
     <LFSH> = 64;
     <BKSL> = 66;
     <AB01> = 52;
@@ -57,7 +58,7 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <AB10> = 61;
     <RTSH> = 62;
     <KPMU> = 63;
-    <LALT> = 50;
+    <LALT> = 133;
     <SPCE> = 65;
     <CAPS> = 51;
     <FK01> = 67;
