@@ -59,7 +59,7 @@ augroup END
 "set guicursor=
 
 "Terminal
-nnoremap <Leader>t :!alacritty & disown<CR> 
+"nnoremap <Leader>e :!alacritty & disown<CR> 
 "set splitbelow
 cabbrev sterm belowright split +terminal
 cabbrev st execute 'belowright sb ' . filter(map(getbufinfo(), 'v:val.bufnr'), 'getbufvar(v:val, "&buftype") is# "terminal"')[0]
@@ -67,6 +67,9 @@ cabbrev st execute 'belowright sb ' . filter(map(getbufinfo(), 'v:val.bufnr'), '
 "TERMINAL
 "nnoremap C-w <ESC>C-w
 tnoremap <ESC> <C-\><C-n>
+
+""terminal open in current dirctory
+""nnoremap  <Leader>e :edit term://%:p:h//bash<CR>
 
 "nnoremap <C-k> <ESC>
 inoremap <C-q> <ESC>
@@ -85,18 +88,20 @@ nnoremap<Leader>p "+p
 noremap <Leader>w <C-w>
 
 "TERMINAL
-nnoremap <Leader>l yy<C-w>jiq<BS><C-u><C-\><C-n>pi<CR><C-\><C-n>i<C-\><C-n><C-w><C-p>
-vnoremap <Leader>l y<C-w>jpi<CR><C-\><C-n>i<C-\><C-n><C-w><C-p>
-vnoremap <Leader>t mz"+y<C-w>jiq<BS><C-u><C-\><C-n>i%paste<CR><C-\><C-n>i<C-\><C-n><C-w><C-p>`z
+"nnoremap <Leader>l yy<C-w>jiq<BS><C-u><C-\><C-n>pi<CR><C-\><C-n>i<C-\><C-n><C-w><C-p>
+"vnoremap <Leader>l y<C-w>jpi<CR><C-\><C-n>i<C-\><C-n><C-w><C-p>
+"vnoremap <Leader>t mz"+y<C-w>jiq<BS><C-u><C-\><C-n>i%paste<CR><C-\><C-n>i<C-\><C-n><C-w><C-p>`z
 
 "TODO remove this
 nnoremap <Leader>k yy<C-w>lGp<C-w><C-p>
 "Tabs
+set showtabline=0
 nnoremap <Leader>1 1gt
 nnoremap <Leader>2 2gt
 nnoremap <Leader>3 3gt
 nnoremap <Leader>4 4gt
 nnoremap <Leader>5 5gt
+"nnoremap <Leader><Space> :tablast<CR>
 
 
 "General Shared with vim
@@ -185,54 +190,15 @@ xnoremap <silent> <expr> P SaveReg('P')
 "sudo keyd reload"
 
 
-nnoremap gb :buffers<CR>:buffer<Space>
-nnoremap gt :echo join(map(filter(nvim_list_bufs(), {i,v -> getbufvar(v,"&buftype") == 'terminal'}), {i,v -> [v,getbufvar(v,"term_title")]}), "\n")<CR>:buffer<Space>
+"nnoremap gb :buffers<CR>:buffer<Space>
+nnoremap gb :Buffers<CR>
+nnoremap gt :Terms<CR>
+
+"nnoremap gt :echo join(map(filter(nvim_list_bufs(), {i,v -> getbufvar(v,"&buftype") == 'terminal'}), {i,v -> [v,getbufvar(v,"term_title")]}), "\n")<CR>:buffer<Space>
 nnoremap <C-Right> :bnext<CR>
 nnoremap <C-Left> :bprevious<CR>
 nnoremap <Space>T v:val.bufnr'), 'getbufvar(v:val, "&buftype") is# "terminal"')[0] <CR>
 
-
-"nnoremap <Space>f :execute<Space>"terminal"<Space>|<Space>file<Space>MYTERMINAL<CR>
-
-"autocmd VimEnter * execute "terminal" | execute "file MYTERMINAL" | execute "bprevious"
-"augroup MyTermMappings
-"  autocmd!
-"autocmd TermOpen * nnoremap <buffer> <Space><Space> :b#<CR>
-"augroup END
-
-nnoremap <Space><Space> :b MYTERMINAL<CR>
-command Myterm execute "terminal" | file MYTERMINAL | execute "bprevious"
-autocmd VimEnter * execute "terminal" | execute "file MYTERMINAL" | nnoremap <buffer> <Space><Space> :b#<CR> | execute "bprevious"
-
-
-""""LSP"""""
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
-    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
-
-    let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
-    " refer to doc to add more commands
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
-call lsp#disable_diagnostics_for_buffer()
+lua << EOF
+	require('main')
+EOF
