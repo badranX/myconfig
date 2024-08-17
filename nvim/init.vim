@@ -5,7 +5,6 @@ Plug 'mattn/vim-lsp-settings'
 "Plug 'samjwill/nvim-unception'
 "Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 call plug#end()
-
 "list all terminal buffers
 "echo join(map(filter(nvim_list_bufs(), {i,v -> getbufvar(v,"&buftype") == 'terminal'}), {i,v -> [v,getbufvar(v,"term_title")]}), "\n")
 
@@ -130,6 +129,7 @@ set mouse=
 "set clipboard=unnamedplus
 "always show status bar
 set laststatus=2
+set cmdheight=0
 
 
 "Indentation/indent
@@ -145,8 +145,8 @@ set colorcolumn=79
 "nnoremap k <Nop>
 "nnoremap h <Nop>
 "nnoremap l <Nop>
-"nnoremap <expr> k v:count ? 'j' : 'gj'
-"nnoremap <expr> l v:count ? 'k' : 'gk'
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 "nnoremap  L l
 "nnoremap  H h
 "
@@ -184,11 +184,18 @@ xnoremap <silent> <expr> P SaveReg('P')
 "
 "vnoremap j h
 "vnoremap k j
-"vnoremap l k
+"vnoremap l -y
 "vnoremap ; l
 "vnoremap h ;
 "sudo keyd reload"
+nnoremap } }zz
+nnoremap { {zz
 
+nnoremap <Up> k<C-y>
+nnoremap <Down> j<C-e>
+
+nnoremap <C-k> k<C-y>
+nnoremap <C-j> j<C-e>
 
 "nnoremap gb :buffers<CR>:buffer<Space>
 nnoremap gb :Buffers<CR>

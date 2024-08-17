@@ -114,3 +114,13 @@ vim.api.nvim_create_user_command(
 		end,
 		{bang = true}
 	)
+
+
+
+	vim.api.nvim_create_user_command(
+  	  'Comp',
+		function(input)
+			list_bufs(is_no_term)
+		end,
+		{bang = true}
+	)
